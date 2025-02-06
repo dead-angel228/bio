@@ -10,22 +10,22 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.9); /* Темнее фон */
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'monospace', monospace; /* Шрифт monospace */
-            color: pink; /* Цвет текста розовый */
+            font-family: 'monospace', monospace;
+            color: white; /* Весь текст ярко-белый */
             transition: background-image 0.5s ease;
         }
 
         .content-container {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8); /* Ещё темнее контейнер */
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid #666666;
+            border: 1px solid #444; /* Более тёмная рамка */
             backdrop-filter: blur(10px);
             width: 90%;
             max-width: 700px;
@@ -34,7 +34,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8); /* Розовая тень */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
         }
 
         .avatar {
@@ -43,24 +43,24 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 25px;
-            border: 3px solid #666666;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8); /* Розовая тень */
+            border: 3px solid #444; /* Более тёмная рамка */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
         }
 
         h2 {
             margin-bottom: 15px;
             font-size: 2.2em;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8); /* Розовая тень */
-            color: white; /* Цвет текста белый */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
+            color: white; /* Ярко-белый цвет текста */
         }
 
         p {
             white-space: pre-line;
-            text-shadow: 0 0 5px rgba(255, 105, 180, 0.8); /* Розовая тень */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
             font-size: 1.2em;
             margin: 0 0 25px 0;
             line-height: 1.6;
-            color: pink; /* Цвет текста розовый */
+            color: white; /* Ярко-белый цвет текста */
         }
 
         .social-buttons {
@@ -72,28 +72,28 @@
 
         .social-button {
             background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid #666666;
+            border: 2px solid #444; /* Более тёмная рамка */
             border-radius: 10px;
             padding: 15px 30px;
-            color: pink; /* Цвет текста розовый */
+            color: white; /* Ярко-белый цвет текста */
             text-decoration: none;
             font-size: 1.2em;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.8); /* Розовая тень */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Белая тень */
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .social-button:hover {
-            background-color: rgba(255, 105, 180, 0.2); /* Розовый фон при наведении */
+            background-color: rgba(255, 255, 255, 0.2); /* Белый фон при наведении */
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 105, 180, 1); /* Розовая тень при наведении */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Белая тень при наведении */
         }
 
         .social-button i {
             font-size: 1.4em;
-            color: pink ; /* Цвет иконок розовый */
+            color: white; /* Ярко-белый цвет иконок */
         }
     </style>
     <!-- Иконки для кнопок (FontAwesome) -->
@@ -104,12 +104,13 @@
         <img src="https://0x0.st/8PHo.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
         <p>
-            Age: 14
-            Country: Russia
-            My hobby: Minecraft, sleep
-            My kents: @HEUROB, @thisAkima
-            My only name user is @funtime_angels
-            Thank you to everyone who read it, and I wish you good luck.
+            About me
+   Age: 14
+   Birthday: 21.01
+   Country: Russia
+   My kents: @HEUROB
+   My hobby: Minecraft
+   I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.
         </p>
         <div class="social-buttons">
             <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
