@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Био</title>
-    <!-- Подключение шрифта Orbitron -->
+    <!-- Подключение шрифта Orbitron и FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Иконки для кнопок (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
@@ -15,33 +14,21 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Orbitron', sans-serif; /* Используем шрифт Orbitron */
+            font-family: 'Orbitron', sans-serif;
             color: white;
-            overflow: hidden;
-            position: relative;
-            border-radius: 30px;
-            background-image: url('https://0x0.st/8PH-.jpg'); /* Замените ссылку на ваше изображение */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('https://0x0.st/8PH-.jpg') no-repeat center/cover; /* Фоновое изображение */
         }
 
         .content-container {
-            background-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.8);
             padding: 30px;
             border-radius: 40px;
             border: 1px solid #444;
             backdrop-filter: blur(10px);
             width: 90%;
             max-width: 700px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            position: relative;
-            z-index: 1;
         }
 
         .avatar {
@@ -55,52 +42,48 @@
         }
 
         h2 {
-            margin-bottom: 15px;
+            margin: 0 0 15px;
             font-size: 2.2em;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            color: white;
         }
 
         p {
             white-space: pre-line;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
             font-size: 1.2em;
-            margin: 0 0 25px 0;
+            margin: 0 0 25px;
             line-height: 1.6;
-            color: white;
         }
 
         .social-buttons {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-button {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             border: 2px solid #444;
             border-radius: 20px;
             padding: 15px 30px;
             color: white;
             text-decoration: none;
             font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
 
         .social-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         .social-button i {
             font-size: 1.4em;
-            color: white;
         }
     </style>
 </head>
@@ -129,11 +112,7 @@
             <a href="https://vk.com/dead_angei" class="social-button" target="_blank">
                 <i class="fab fa-vk"></i> ВКонтакте
             </a>
-            
         </div>
-        
     </div>
-    
- </body>
-    
-</html> 
+</body>
+</html>
