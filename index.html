@@ -4,148 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Био</title>
-    <!-- Подключение шрифта Orbitron и FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet" rel="preload" as="style">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Основные стили */
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Orbitron', sans-serif;
-            color: white;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50); /* Градиентный фон */
-            overflow: hidden;
-        }
-
-        .content-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-        h2 {
-            margin: 0 0 20px;
-            font-size: 2.5em;
-            background: linear-gradient(45deg, #00ffcc, #0077ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glowText 2s infinite alternate;
-        }
-
-        p {
-            white-space: pre-line;
-            font-size: 1.1em;
-            margin: 0 0 25px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            padding: 15px 30px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .social-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .social-button i {
-            font-size: 1.3em;
-        }
-
-        /* Анимации */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glowText {
-            0% {
-                text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
-            }
-        }
+        body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'Orbitron',sans-serif;color:white;background:linear-gradient(135deg,#1a1a1a,#2c3e50);overflow:hidden;}
+        .content-container{background:rgba(0,0,0,0.7);padding:40px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(15px);width:90%;max-width:700px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);animation:fadeIn 1.5s ease-in-out;}
+        .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:3px solid rgba(255,255,255,0.2);box-shadow:0 0 20px rgba(255,255,255,0.3);transition:transform 0.3s ease,box-shadow 0.3s ease;}
+        .avatar:hover{transform:scale(1.1);box-shadow:0 0 30px rgba(255,255,255,0.5);}
+        h2{margin:0 0 20px;font-size:2.5em;background:linear-gradient(45deg,#00ffcc,#0077ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glowText 2s infinite alternate;}
+        p{white-space:pre-line;font-size:1.1em;margin:0 0 25px;line-height:1.6;color:rgba(255,255,255,0.9);}
+        .social-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+        .social-button{background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2);border-radius:30px;padding:15px 30px;color:white;text-decoration:none;font-size:1.1em;display:flex;align-items:center;gap:10px;transition:all 0.3s ease;box-shadow:0 0 10px rgba(255,255,255,0.2);}
+        .social-button:hover{background:rgba(255,255,255,0.2);transform:translateY(-5px);box-shadow:0 10px 20px rgba(255,255,255,0.3);}
+        .social-button i{font-size:1.3em;}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+        @keyframes glowText{0%{text-shadow:0 0 10px rgba(0,255,204,0.8);}100%{text-shadow:0 0 20px rgba(0,119,255,0.8);}}
     </style>
 </head>
 <body>
     <div class="content-container">
         <img src="https://0x0.st/8PHo.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
-        <p>
-            About me 
-    name: Ilya
-    Age: 14
-    Birthday: 21.01
-    Country: Russia
-    My lovely girl: @D1la1daSkyee
-    My kents: @HEUROB
-    My hobby: Minecraft
-    I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.
-        </p>
+        <p>About me 
+name: Ilya
+Age: 14
+Birthday: 21.01
+Country: Russia
+My lovely girl: @D1la1daSkyee
+My kents: @HEUROB
+My hobby: Minecraft
+I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.</p>
         <div class="social-buttons">
-            <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
-                <i class="fab fa-telegram"></i> Telegram
-            </a>
-            <a href="https://www.tiktok.com/@vitalik_angel" class="social-button" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok
-            </a>
-            <a href="https://vk.com/dead_angei" class="social-button" target="_blank">
-                <i class="fab fa-vk"></i> ВКонтакте
-            </a>
+            <a href="https://t.me/funtime_angels" class="social-button" target="_blank"><i class="fab fa-telegram"></i>Telegram</a>
+            <a href="https://www.tiktok.com/@vitalik_angel" class="social-button" target="_blank"><i class="fab fa-tiktok"></i>TikTok</a>
+            <a href="https://vk.com/dead_angei" class="social-button" target="_blank"><i class="fab fa-vk"></i>ВКонтакте</a>
         </div>
     </div>
 </body>
