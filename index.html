@@ -7,7 +7,11 @@
     <style>
         /* Основные стили */
         body {
-            background-color: #000;
+            background-image: url("https://0x0.st/8P1g.mp4");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.9);
             margin: 0;
             display: flex;
             justify-content: center;
@@ -45,8 +49,34 @@
 
         /* Контейнер с контентом */
         .content-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            width: 90%;
+            max-width: 700px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Аватар */
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
         }
 
         /* Заголовок */
@@ -79,12 +109,59 @@
             color: white;
             font-family: 'Courier New', monospace;
         }
+
+        /* Кнопки соцсетей */
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .social-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .social-button i {
+            font-size: 1.4em;
+            color: white;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50%, 50%);
+            }
+        }
     </style>
+    <!-- Иконки для кнопок (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Шрифт Orbitron для техно-стиля -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="content-container">
+        <img src="https://0x0.st/8PHo.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
         <p>
             About me 
@@ -96,6 +173,17 @@
     My hobby: Minecraft
     I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.
         </p>
+        <div class="social-buttons">
+            <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+            <a href="https://www.tiktok.com/@vitalik_angel" class="social-button" target="_blank">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://vk.com/dead_angei" class="social-button" target="_blank">
+                <i class="fab fa-vk"></i> ВКонтакте
+            </a>
+        </div>
     </div>
 </body>
 </html>
