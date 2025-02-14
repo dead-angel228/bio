@@ -32,7 +32,7 @@
             min-height: 100vh;
             font-family: 'Orbitron', sans-serif;
             color: white;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50), url('https://0x0.st/8NoL.jpg') no-repeat center center/cover; /* Градиент + фоновое изображение */
             overflow: auto; /* Разрешаем скролл */
         }
 
@@ -105,16 +105,41 @@
             gap: 10px;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+        .social-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ffcc, #0077ff, #00ffcc);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .social-button:hover::before {
+            left: 100%;
+        }
+
+        .social-button span {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(45deg, #00ffcc, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFlow 3s infinite linear;
         }
 
         .social-button i {
             font-size: 1.3em;
+            background: linear-gradient(45deg, #00ffcc, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFlow 3s infinite linear;
         }
 
         /* Кнопка прокрутки вверх */
@@ -159,6 +184,15 @@
                 text-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
             }
         }
+
+        @keyframes textFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -178,13 +212,16 @@
         </p>
         <div class="social-buttons">
             <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
-                <i class="fab fa-telegram"></i> Telegram
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
             </a>
             <a href="https://www.tiktok.com/@vitalik_angel" class="social-button" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
             </a>
             <a href="https://vk.com/dead_angei" class="social-button" target="_blank">
-                <i class="fab fa-vk"></i> ВКонтакте
+                <i class="fab fa-vk"></i>
+                <span>ВКонтакте</span>
             </a>
         </div>
     </div>
