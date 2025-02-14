@@ -32,9 +32,22 @@
             min-height: 100vh;
             font-family: 'Orbitron', sans-serif;
             color: white;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(44, 62, 80, 0.8)), url('https://0x0.st/8NNb.jpg') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(44, 62, 80, 0.8)), url('https://0x0.st/8NoL.jpg') no-repeat center center/cover;
             overflow: auto;
             position: relative;
+        }
+
+        /* Затемнение фона */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+            z-index: -1;
+        }
 
         .content-container {
             background: rgba(0, 0, 0, 0.7);
@@ -52,20 +65,49 @@
             z-index: 1;
         }
 
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
         .avatar {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
             border: 3px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .avatar:hover {
             transform: scale(1.1);
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Крылья ангела */
+        .wings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px; /* Размер крыльев */
+            height: auto;
+            z-index: 1;
+            opacity: 0.8;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
         }
 
         h2 {
@@ -192,7 +234,11 @@
 </head>
 <body>
     <div class="content-container">
-        <img src="https://0x0.st/8NPY.jpg" alt="Аватар" class="avatar">
+        <div class="avatar-wrapper">
+            <img src="https://0x0.st/8NPY.jpg" alt="Аватар" class="avatar">
+            <!-- Крылья ангела -->
+            <img src="https://i.imgur.com/3QZQZQZ.png" alt="Крылья" class="wings">
+        </div>
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
         <p>
             About me 
