@@ -34,6 +34,19 @@
             color: white;
             background: linear-gradient(135deg, #1a1a1a, #2c3e50), url('https://0x0.st/8NoL.jpg/1920x1080') no-repeat center center/cover;
             overflow: auto;
+            position: relative;
+        }
+
+        /* Параллакс-эффект для фона */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
 
         .content-container {
@@ -48,6 +61,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1.5s ease-in-out;
             margin: 50px auto;
+            position: relative;
+            z-index: 1;
         }
 
         .avatar {
@@ -74,6 +89,7 @@
             -webkit-text-fill-color: transparent;
             background-size: 200% 200%;
             animation: gradientFlow 3s linear infinite;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8);
         }
 
         p {
@@ -168,6 +184,23 @@
                 background-position: 0% 50%;
             }
         }
+
+        /* Анимация фона */
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        body {
+            animation: moveBackground 20s infinite alternate;
+        }
     </style>
 </head>
 <body>
@@ -214,4 +247,4 @@
         });
     </script>
 </body>
-</html>
+</html>ё   
