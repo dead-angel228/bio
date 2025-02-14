@@ -58,11 +58,43 @@
             width: 90%;
             max-width: 700px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5), 0 0 50px rgba(0, 119, 255, 0.5);
             animation: fadeIn 1.5s ease-in-out;
             margin: 50px auto;
             position: relative;
             z-index: 1;
+            overflow: hidden; /* Чтобы свечение не выходило за границы */
+        }
+
+        /* Эффект свечения от края контейнера */
+        .content-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(
+                45deg,
+                rgba(0, 255, 204, 0.2),
+                rgba(0, 119, 255, 0.2),
+                rgba(0, 255, 204, 0.2)
+            );
+            z-index: -1;
+            filter: blur(20px);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                opacity: 0.5;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
         }
 
         .avatar-wrapper {
@@ -88,28 +120,6 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
         }
 
-        /* Крылья ангела */
-        .wings {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 250px; /* Размер крыльев */
-            height: auto;
-            z-index: 1;
-            opacity: 0.8;
-            animation: float 3s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(-50%, -50%) translateY(0);
-            }
-            50% {
-                transform: translate(-50%, -50%) translateY(-10px);
-            }
-        }
-
         h2 {
             margin: 0 0 20px;
             font-size: 2.5em;
@@ -119,6 +129,11 @@
             background-size: 200% 200%;
             animation: gradientFlow 3s linear infinite;
             text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8);
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: scale(1.05);
         }
 
         p {
