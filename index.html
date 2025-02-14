@@ -32,8 +32,8 @@
             min-height: 100vh;
             font-family: 'Orbitron', sans-serif;
             color: white;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50), url('https://0x0.st/8NoL.jpg') no-repeat center center/cover; /* Градиент + фоновое изображение */
-            overflow: auto; /* Разрешаем скролл */
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50), url('https://0x0.st/8NoL.jpg/1920x1080') no-repeat center center/cover;
+            overflow: auto;
         }
 
         .content-container {
@@ -47,7 +47,7 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1.5s ease-in-out;
-            margin: 50px auto; /* Добавлен отступ для скролла */
+            margin: 50px auto;
         }
 
         .avatar {
@@ -69,10 +69,11 @@
         h2 {
             margin: 0 0 20px;
             font-size: 2.5em;
-            background: linear-gradient(45deg, #00ffcc, #0077ff);
+            background: linear-gradient(45deg, #00ffcc, #0077ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: glowText 2s infinite alternate;
+            background-size: 200% 200%;
+            animation: gradientFlow 3s linear infinite;
         }
 
         p {
@@ -81,8 +82,7 @@
             margin: 0 0 25px;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8); /* Эффект свечения */
-            animation: glowText 2s infinite alternate; /* Анимация свечения */
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8);
         }
 
         .social-buttons {
@@ -105,41 +105,21 @@
             gap: 10px;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
         }
 
-        .social-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #00ffcc, #0077ff, #00ffcc);
-            transition: left 0.5s ease;
-            z-index: 1;
-        }
-
-        .social-button:hover::before {
-            left: 100%;
-        }
-
-        .social-button span {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(45deg, #00ffcc, #0077ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textFlow 3s infinite linear;
+        .social-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
         }
 
         .social-button i {
             font-size: 1.3em;
-            background: linear-gradient(45deg, #00ffcc, #0077ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textFlow 3s infinite linear;
+            color: #00ffcc;
+        }
+
+        .social-button span {
+            color: white;
         }
 
         /* Кнопка прокрутки вверх */
@@ -156,7 +136,7 @@
             font-size: 1.5em;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
-            display: none; /* Скрыта по умолчанию */
+            display: none;
             transition: opacity 0.3s ease;
         }
 
@@ -164,7 +144,7 @@
             opacity: 0.9;
         }
 
-        /* Анимации */
+        /* Анимация появления контейнера */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -176,21 +156,16 @@
             }
         }
 
-        @keyframes glowText {
-            0% {
-                text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
-            }
-        }
-
-        @keyframes textFlow {
+        /* Анимация градиента для текста */
+        @keyframes gradientFlow {
             0% {
                 background-position: 0% 50%;
             }
-            100% {
+            50% {
                 background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
     </style>
