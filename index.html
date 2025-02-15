@@ -7,56 +7,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Плавная прокрутка для всей страницы */
+        /* Общие стили */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Кастомный скроллбар */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.3);
         }
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(45deg, #ff7eb9, #7afcff);
-            border-radius: 4px;
+            border-radius: 5px;
         }
 
         body {
             margin: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             font-family: 'Orbitron', sans-serif;
             color: white;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(44, 62, 80, 0.8)), url('https://0x0.st/8NNb.jpg') no-repeat center center/cover;
-            overflow: auto;
-            position: relative;
-        }
-        
-        .content-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
-            margin: 50px auto;
-            position: relative;
-            z-index: 1;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(44, 62, 80, 0.5)), url('https://0x0.st/8NNb.jpg') no-repeat center center/cover;
+            animation: moveBackground 20s infinite alternate;
         }
 
-        .avatar-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
+        .content-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .avatar {
@@ -65,28 +56,17 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(255, 126, 185, 0.6);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            z-index: 2;
         }
 
         .avatar:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(-50%, -50%) translateY(0);
-            }
-            50% {
-                transform: translate(-50%, -50%) translateY(-10px);
-            }
+            box-shadow: 0 0 50px rgba(255, 126, 185, 0.8);
         }
 
         h2 {
-            margin: 0 0 20px;
+            margin: 20px 0;
             font-size: 2.5em;
             background: linear-gradient(45deg, #ff7eb9, #7afcff, #ff7eb9);
             -webkit-background-clip: text;
@@ -107,7 +87,7 @@
 
         .social-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -116,13 +96,13 @@
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 30px;
-            padding: 15px 30px;
+            padding: 10px 20px;
             color: white;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
@@ -130,19 +110,14 @@
         .social-button:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
         }
 
         .social-button i {
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: #ff7eb9;
         }
 
-        .social-button span {
-            color: white;
-        }
-
-        /* Кнопка прокрутки вверх */
         .scroll-top {
             position: fixed;
             bottom: 20px;
@@ -150,21 +125,22 @@
             background: linear-gradient(45deg, #ff7eb9, #7afcff);
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             color: white;
-            font-size: 1.5em;
+            font-size: 1.2em;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 126, 185, 0.5);
+            box-shadow: 0 0 15px rgba(255, 126, 185, 0.6);
             display: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .scroll-top:hover {
             opacity: 0.9;
+            transform: scale(1.1);
         }
 
-        /* Анимация появления контейнера */
+        /* Анимации */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -176,7 +152,6 @@
             }
         }
 
-        /* Анимация градиента для текста */
         @keyframes gradientFlow {
             0% {
                 background-position: 0% 50%;
@@ -189,7 +164,6 @@
             }
         }
 
-        /* Анимация фона */
         @keyframes moveBackground {
             0% {
                 background-position: 0% 0%;
@@ -201,17 +175,11 @@
                 background-position: 0% 0%;
             }
         }
-
-        body {
-            animation: moveBackground 20s infinite alternate;
-        }
     </style>
 </head>
 <body>
     <div class="content-container">
-        <div class="avatar-wrapper">
-            <img src="https://0x0.st/8NPY.jpg" alt="Аватар" class="avatar">
-        </div>
+        <img src="https://0x0.st/8NPY.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
         <p>
             About me:
@@ -240,14 +208,12 @@
         </div>
     </div>
 
-    <!-- Кнопка для прокрутки вверх -->
     <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Показать/скрыть кнопку прокрутки вверх
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             const scrollButton = document.querySelector('.scroll-top');
             scrollButton.style.display = window.scrollY > 500 ? 'block' : 'none';
         });
