@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Био</title>
+    <title>Био | Евангелион</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-    
         html {
             scroll-behavior: smooth;
         }
@@ -76,6 +75,12 @@
             text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
         }
 
+        .nerv-logo {
+            width: 100px;
+            margin: 10px 0; /* Логотип под заголовком */
+            filter: drop-shadow(0 0 10px rgba(255, 126, 185, 0.8));
+        }
+
         p {
             white-space: pre-line;
             font-size: 1.1em;
@@ -140,7 +145,13 @@
             transform: scale(1.1);
         }
 
-   
+        .quote {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -181,6 +192,8 @@
     <div class="content-container">
         <img src="https://0x0.st/8NwH.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
+        <!-- Замени ссылку ниже на свою, загрузив логотип на 0x0.st -->
+        <img src="https://0x0.st/s/OsoGnRwj1_Y4uEAXFa7JuQ/8b3X.jpg" alt="NERV Logo" class="nerv-logo">
         <p>
             About me:
     name: Ilya.
@@ -192,6 +205,9 @@
     My hobby: Minecraft.
     I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.
         </p>
+        <div class="quote">
+            "The fate of destruction is also the joy of rebirth." – Evangelion
+        </div>
         <div class="social-buttons">
             <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
                 <i class="fab fa-telegram"></i>
