@@ -48,6 +48,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             animation: fadeIn 1.5s ease-in-out;
             position: relative;
+            overflow: hidden; /* Скрываем всё, что выходит за границы контейнера */
         }
 
         .avatar {
@@ -162,30 +163,26 @@
 
         .angel {
             position: absolute;
-            width: 100px;
+            width: 80px; /* Уменьшим размер для удобства */
             opacity: 0.7;
             animation: float 6s infinite ease-in-out;
         }
 
-        .angel.left {
-            top: 20%;
-            left: -120px;
-        }
-
-        .angel.right {
-            top: 60%;
-            right: -120px;
-        }
-
         @keyframes float {
             0% {
-                transform: translateY(0);
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(200px, 50px);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translate(100px, 150px);
+            }
+            75% {
+                transform: translate(-100px, 50px);
             }
             100% {
-                transform: translateY(0);
+                transform: translate(0, 0);
             }
         }
 
@@ -258,11 +255,11 @@
                 <span>ВКонтакте</span>
             </a>
         </div>
-    </div>
 
-    <!-- Ангелы -->
-    <img src="https://0x0.st/s/5Enm2j0_rn2RQMa0WWw2YA/8b3B.jpg" alt="Angel" class="angel left">
-    <img src="https://0x0.st/s/L-RUF2qdLMQCDY2ImucP_Q/8b3M.jpg" alt="Angel" class="angel right">
+        <!-- Ангелы внутри контейнера -->
+        <img src="https://0x0.st/s/L-RUF2qdLMQCDY2ImucP_Q/8b3M.jpg" alt="Angel" class="angel" style="top: 20%; left: 10%;">
+        <img src="https://0x0.st/s/5Enm2j0_rn2RQMa0WWw2YA/8b3B.jpg" alt="Angel" class="angel" style="top: 60%; left: 70%;">
+    </div>
 
     <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
