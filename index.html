@@ -47,6 +47,7 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             animation: fadeIn 1.5s ease-in-out;
+            position: relative;
         }
 
         .avatar {
@@ -73,12 +74,6 @@
             background-size: 200% 200%;
             animation: gradientFlow 3s linear infinite;
             text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
-        }
-
-        .nerv-logo {
-            width: 100px;
-            margin: 10px 0; /* Логотип под заголовком */
-            filter: drop-shadow(0 0 10px rgba(255, 126, 185, 0.8));
         }
 
         p {
@@ -152,6 +147,48 @@
             animation: fadeIn 2s ease-in-out;
         }
 
+        .eva-theme {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            background: linear-gradient(45deg, #ff7eb9, #7afcff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 3s linear infinite;
+            text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
+        }
+
+        .angel {
+            position: absolute;
+            width: 100px;
+            opacity: 0.7;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .angel.left {
+            top: 20%;
+            left: -120px;
+        }
+
+        .angel.right {
+            top: 60%;
+            right: -120px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -190,10 +227,9 @@
 </head>
 <body>
     <div class="content-container">
+        <div class="eva-theme">NERV</div>
         <img src="https://0x0.st/8NwH.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
-        <!-- Замени ссылку ниже на свою, загрузив логотип на 0x0.st -->
-        <img src="https://0x0.st/s/OsoGnRwj1_Y4uEAXFa7JuQ/8b3X.jpg" alt="NERV Logo" class="nerv-logo">
         <p>
             About me:
     name: Ilya.
@@ -223,6 +259,10 @@
             </a>
         </div>
     </div>
+
+    <!-- Ангелы -->
+    <img src="https://0x0.st/s/5Enm2j0_rn2RQMa0WWw2YA/8b3B.jpg" alt="Angel" class="angel left">
+    <img src="https://0x0.st/s/L-RUF2qdLMQCDY2ImucP_Q/8b3M.jpg" alt="Angel" class="angel right">
 
     <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
