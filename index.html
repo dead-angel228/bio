@@ -47,8 +47,6 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             animation: fadeIn 1.5s ease-in-out;
-            position: relative;
-            overflow: hidden; /* Скрываем всё, что выходит за границы контейнера */
         }
 
         .avatar {
@@ -146,44 +144,12 @@
             color: rgba(255, 255, 255, 0.8);
             margin: 20px 0;
             animation: fadeIn 2s ease-in-out;
-        }
-
-        .eva-theme {
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5em;
-            background: linear-gradient(45deg, #ff7eb9, #7afcff);
+            background: linear-gradient(45deg, #ff7eb9, #7afcff, #ff7eb9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
             animation: gradientFlow 3s linear infinite;
             text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
-        }
-
-        .angel {
-            position: absolute;
-            width: 80px; /* Уменьшим размер для удобства */
-            opacity: 0.7;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0);
-            }
-            25% {
-                transform: translate(200px, 50px);
-            }
-            50% {
-                transform: translate(100px, 150px);
-            }
-            75% {
-                transform: translate(-100px, 50px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
         }
 
         @keyframes fadeIn {
@@ -224,7 +190,6 @@
 </head>
 <body>
     <div class="content-container">
-        <div class="eva-theme">NERV</div>
         <img src="https://0x0.st/8NwH.jpg" alt="Аватар" class="avatar">
         <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
         <p>
@@ -255,10 +220,6 @@
                 <span>ВКонтакте</span>
             </a>
         </div>
-
-        <!-- Ангелы внутри контейнера -->
-        <img src="https://0x0.st/s/L-RUF2qdLMQCDY2ImucP_Q/8b3M.jpg" alt="Angel" class="angel" style="top: 20%; left: 10%;">
-        <img src="https://0x0.st/s/5Enm2j0_rn2RQMa0WWw2YA/8b3B.jpg" alt="Angel" class="angel" style="top: 60%; left: 70%;">
     </div>
 
     <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
