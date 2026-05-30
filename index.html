@@ -1,237 +1,298 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta name="yandex-verification" content="bbd6efd32d0630f6" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Bio Page</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Awesome Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Caveat:wght@400;700&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #ff7eb9, #7afcff);
-            border-radius: 5px;
-        }
-
         body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Orbitron', sans-serif;
-            color: white;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(44, 62, 80, 0.5)), url('https://0x0.st/8N6a.jpg') no-repeat center center/cover;
-            animation: moveBackground 20s infinite alternate;
+            background-color: #1a1a1a; /* Изменено на глубокий серый */
+            font-family: 'Comfortaa', sans-serif;
+            overflow-x: hidden;
         }
 
-        .content-container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 30px rgba(255, 126, 185, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 50px rgba(255, 126, 185, 0.8);
-        }
-
-        h2 {
-            margin: 20px 0;
-            font-size: 2.5em;
-            background: linear-gradient(45deg, #ff7eb9, #7afcff, #ff7eb9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientFlow 3s linear infinite;
-            text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
-        }
-
-        p {
-            white-space: pre-line;
-            font-size: 1.1em;
-            margin: 0 0 25px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .social-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
-        }
-
-        .social-button i {
-            font-size: 1.2em;
-            color: #ff7eb9;
-        }
-
-        .scroll-top {
+        /* Задний фон со звездами/точками */
+        .stars-bg {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(45deg, #ff7eb9, #7afcff);
-            border: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.05) 2px, transparent 4px);
+            background-size: 240px 240px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 150px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Эффект свечения для текста (мягкий серый неон) */
+        .glow-text {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(226, 232, 240, 0.6), 0 0 20px rgba(226, 232, 240, 0.3);
+        }
+
+        /* Цитата курсивом */
+        .quote-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* Свечение для кнопки "Хочу так же" в серых тонах */
+        .gray-glow {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .gray-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Стиль плеера */
+        .player-glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Стилизация ползунка громкости */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255,255,255,0.2);
+            border-radius: 9999px;
+            height: 4px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            color: white;
-            font-size: 1.2em;
+            background: #fff;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 126, 185, 0.6);
-            display: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .scroll-top:hover {
-            opacity: 0.9;
-            transform: scale(1.1);
-        }
-
-        .quote {
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 20px 0;
-            animation: fadeIn 2s ease-in-out;
-            background: linear-gradient(45deg, #ff7eb9, #7afcff, #ff7eb9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientFlow 3s linear infinite;
-            text-shadow: 0 0 10px rgba(255, 126, 185, 0.8), 0 0 20px rgba(122, 252, 255, 0.8);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes gradientFlow {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes moveBackground {
-            0% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: 0% 0%;
-            }
         }
     </style>
 </head>
-<body>
-    <div class="content-container">
-        <img src="https://0x0.st/8NwH.jpg" alt="Аватар" class="avatar">
-        <h2>bio ʍᴇᴩ✞ʙый ɸᴀᴧин</h2>
-        <p>
-            About me:
-    name: Ilya.
-    Age: 14.
-    Birthday: 21.01.
-    Country: Russia.
-    My lovely girl: ???
-    My kents: @HEUROB
-    My hobby: Minecraft.
-    I do not advocate for organizations banned in the Russian Federation, and moreover, I do not call for them and do not support their activities.
-        </p>
-        <div class="quote">
-            "The fate of destruction is also the joy of rebirth." – Evangelion
+<body class="text-gray-300 flex flex-col items-center justify-start min-h-screen p-4 select-none">
+
+    <!-- Задний фон -->
+    <div class="stars-bg"></div>
+
+    <!-- Тег аудио для реального воспроизведения -->
+    <!-- Здесь используется бесплатный чилл-хоп трек в качестве примера. Можно заменить ссылку на свою. -->
+    <audio id="audioSource" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
+
+    <!-- Контейнер карточки -->
+    <div class="w-full max-w-md flex flex-col items-center space-y-6 mt-4">
+
+        <!-- РАБОЧИЙ ПЛЕЕР -->
+        <div class="player-glass w-full rounded-3xl p-4 flex flex-col space-y-3 relative overflow-hidden">
+            <div class="absolute -left-6 -top-6 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+            
+            <div class="flex items-center justify-between z-10">
+                <div class="flex items-center space-x-3">
+                    <!-- Кнопка Play/Pause -->
+                    <button id="playBtn" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition cursor-pointer">
+                        <i id="playIcon" class="fas fa-play text-xs text-white"></i>
+                    </button>
+                    <div>
+                        <p class="text-[10px] text-gray-500 font-mono tracking-wider uppercase">Now Playing</p>
+                        <p class="text-sm font-bold text-gray-200 tracking-wide">let me smoking alone (raw)</p>
+                    </div>
+                </div>
+                
+                <!-- Блок громкости -->
+                <div class="flex items-center space-x-2">
+                    <i id="volumeIcon" class="fas fa-volume-up text-gray-500 text-xs cursor-pointer hover:text-white transition"></i>
+                    <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.5" class="w-16 cursor-pointer">
+                </div>
+            </div>
+            
+            <!-- Полоса прогресса -->
+            <div class="w-full flex items-center space-x-2 text-[10px] font-mono text-gray-500 z-10">
+                <span id="currentTime">0:00</span>
+                <div class="flex-1 bg-white/10 h-1 rounded-full relative cursor-pointer" id="progressContainer">
+                    <div class="bg-gray-400 h-full rounded-full w-0" id="progressBar"></div>
+                </div>
+                <span id="durationTime">0:00</span>
+            </div>
         </div>
-        <div class="social-buttons">
-            <a href="https://t.me/funtime_angels" class="social-button" target="_blank">
-                <i class="fab fa-telegram"></i>
-                <span>Telegram</span>
+
+        <!-- АВАТАР И СВЕЧЕНИЕ -->
+        <div class="relative mt-2">
+            <div class="absolute inset-0 bg-white/5 rounded-full blur-2xl transform scale-125"></div>
+            <!-- Круглый аватар в серых тонах -->
+            <div class="w-24 h-24 rounded-full bg-gradient-to-b from-gray-600 to-gray-800 border border-white/10 shadow-inner overflow-hidden flex items-center justify-center">
+                <i class="fas fa-moon text-gray-400/40 text-4xl"></i>
+            </div>
+        </div>
+
+        <!-- НИКНЕЙМ -->
+        <div class="text-center">
+            <h1 class="text-2xl font-black text-gray-200 glow-text tracking-widest uppercase">Preispodnev</h1>
+            <p class="text-xs text-gray-500 font-mono mt-1">@sk.hostel</p>
+        </div>
+
+        <!-- СТАТУС DISCORD (В темно-серых тонах) -->
+        <div class="bg-zinc-800/60 border border-white/5 rounded-full px-4 py-2 flex items-center space-x-2 text-xs text-gray-400">
+            <i class="fab fa-discord text-gray-400"></i>
+            <span class="w-2.5 h-2.5 bg-zinc-500 rounded-full animate-pulse"></span>
+            <span>не беспокоить</span>
+            <button class="text-gray-600 hover:text-gray-400 transition pl-1 cursor-pointer">
+                <i class="fas fa-sync-alt text-[10px]"></i>
+            </button>
+        </div>
+
+        <!-- ЦИТАТА / ТЕКСТ -->
+        <div class="text-center space-y-1 my-2 max-w-[280px]">
+            <p class="quote-text text-gray-400 italic">snow keeps falling.</p>
+            <p class="quote-text text-gray-400 italic">so do i.</p>
+            <p class="quote-text text-gray-500 italic">no one's watching.</p>
+            <p class="quote-text text-gray-500 italic">that's the best part.</p>
+        </div>
+
+        <!-- МИНИ СТАТУСЫ С ИКОНКАМИ -->
+        <div class="flex space-x-6 text-xs text-gray-500 font-mono">
+            <span class="flex items-center space-x-1">
+                <i class="fas fa-skull text-[10px]"></i>
+                <span>fear</span>
+            </span>
+            <span class="flex items-center space-x-1">
+                <i class="fas fa-bolt text-[10px]"></i>
+                <span>Moon</span>
+            </span>
+        </div>
+
+        <!-- КНОПКИ СОЦ СЕТЕЙ (Стильный серый монохром) -->
+        <div class="w-full flex flex-col space-y-3 px-6">
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Spotify -->
+                <a href="#" class="border border-white/5 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] py-2.5 rounded-full flex items-center justify-center space-x-2 text-xs font-medium text-gray-400 hover:text-gray-200 transition duration-300">
+                    <i class="fab fa-spotify text-sm"></i>
+                    <span>spotify</span>
+                </a>
+                <!-- Telegram -->
+                <a href="#" class="border border-white/5 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] py-2.5 rounded-full flex items-center justify-center space-x-2 text-xs font-medium text-gray-400 hover:text-gray-200 transition duration-300">
+                    <i class="fab fa-telegram-plane text-sm"></i>
+                    <span>telegram</span>
+                </a>
+            </div>
+
+            <!-- Дополнительная кнопка -->
+            <a href="#" class="border border-white/5 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] py-2.5 rounded-full flex items-center justify-center space-x-2 text-xs font-medium text-gray-400 hover:text-gray-200 transition duration-300">
+                <i class="fab fa-discord text-sm"></i>
+                <span>+888</span>
             </a>
-            <a href="https://www.tiktok.com/@vitalik_angel" class="social-button" target="_blank">
-                <i class="fab fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
-            <a href="https://vk.com/dead_angei" class="social-button" target="_blank">
-                <i class="fab fa-vk"></i>
-                <span>ВКонтакте</span>
+
+            <!-- Кнопка "Хочу так же" в сером неоновом стиле -->
+            <a href="#" class="gray-glow bg-zinc-800/40 border border-zinc-700/50 hover:border-zinc-500/80 text-gray-400 hover:text-gray-200 py-3 rounded-full flex items-center justify-center space-x-2 text-xs font-bold tracking-wider mt-2 transition">
+                <i class="fas fa-heart text-[10px]"></i>
+                <span>хочу так же</span>
             </a>
         </div>
+
+        <!-- ФУТЕР -->
+        <div class="pt-8 text-[10px] text-gray-600 font-mono flex items-center space-x-2">
+            <span>❄ Preispodnev</span>
+            <span>•</span>
+            <span>+888 Social</span>
+        </div>
+
     </div>
 
-    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <!-- СКРИПТ АУДИОПЛЕЕРА -->
     <script>
-        window.addEventListener('scroll', () => {
-            const scrollButton = document.querySelector('.scroll-top');
-            scrollButton.style.display = window.scrollY > 500 ? 'block' : 'none';
+        const audio = document.getElementById('audioSource');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationTimeEl = document.getElementById('durationTime');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        // Установка начальной громкости
+        audio.volume = volumeSlider.value;
+
+        // Клик по кнопке Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Ошибка воспроизведения. Требуется жест взаимодействия с UI."));
+                playIcon.className = 'fas fa-pause text-xs text-white';
+            } else {
+                audio.pause();
+                playIcon.className = 'fas fa-play text-xs text-white';
+            }
         });
+
+        // Обновление прогресс-бара и времени
+        audio.addEventListener('timeupdate', () => {
+            const { duration, currentTime } = audio;
+            if (duration) {
+                const progressPercent = (currentTime / duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                
+                // Форматирование времени
+                currentTimeEl.innerText = formatTime(currentTime);
+            }
+        });
+
+        // Получение длительности трека при загрузке метаданных
+        audio.addEventListener('loadedmetadata', () => {
+            durationTimeEl.innerText = formatTime(audio.duration);
+        });
+
+        // Перемотка кликом по прогресс-бару
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            if (duration) {
+                audio.currentTime = (clickX / width) * duration;
+            }
+        });
+
+        // Управление громкостью через ползунок
+        volumeSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            audio.volume = val;
+            if (val == 0) {
+                volumeIcon.className = 'fas fa-volume-mute text-gray-500 text-xs';
+            } else if (val < 0.5) {
+                volumeIcon.className = 'fas fa-volume-down text-gray-500 text-xs';
+            } else {
+                volumeIcon.className = 'fas fa-volume-up text-gray-500 text-xs';
+            }
+        });
+
+        // Быстрое включение/выключение звука по клику на иконку
+        let lastVolume = 0.5;
+        volumeIcon.addEventListener('click', () => {
+            if (audio.volume > 0) {
+                lastVolume = audio.volume;
+                audio.volume = 0;
+                volumeSlider.value = 0;
+                volumeIcon.className = 'fas fa-volume-mute text-gray-500 text-xs';
+            } else {
+                audio.volume = lastVolume;
+                volumeSlider.value = lastVolume;
+                volumeIcon.className = lastVolume < 0.5 ? 'fas fa-volume-down text-gray-500 text-xs' : 'fas fa-volume-up text-gray-500 text-xs';
+            }
+        });
+
+        // Хелпер для форматирования секунд в MM:SS
+        function formatTime(time) {
+            const min = Math.floor(time / 60);
+            const sec = Math.floor(time % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
     </script>
 </body>
 </html>
